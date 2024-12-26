@@ -1,5 +1,4 @@
-
-const ButtonCustom = ({type, customClassname, childred, onClick}) => {
+const ButtonCustom = ({ type, customClassname, childred, onClick }) => {
   return (
     <button
       type={type}
@@ -9,6 +8,6 @@ const ButtonCustom = ({type, customClassname, childred, onClick}) => {
       {childred}
     </button>
   );
-}
+};
 
-export default ButtonCustom
+export default ButtonCustom;

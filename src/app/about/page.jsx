@@ -3,8 +3,10 @@
 import { useEffect, useState } from "react";
 import Navbar from "../../components/fragments/Navbar";
 import ButtonCustom from "@/components/elements/ButtonCustom";
-import DisplayData from "@/components/fragments/DisplayData"; // Impor komponen DisplayData
+import DisplayData from "@/components/fragments/DisplayData";
 import "../globals.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Page = () => {
   const [profileData, setProfileData] = useState({
@@ -16,7 +18,7 @@ const Page = () => {
   });
 
   useEffect(() => {
-    // Ambil data dari sessionStorage
+    // Fetch data from sessionStorage
     const fullName = sessionStorage.getItem("fullName");
     const age = sessionStorage.getItem("age");
     const birthDate = sessionStorage.getItem("birthDate");
@@ -24,10 +26,20 @@ const Page = () => {
     const phoneNumber = sessionStorage.getItem("phoneNumber");
 
     setProfileData({ fullName, age, birthDate, profilePic, phoneNumber });
+
+    // Show success toast after data is fetched (initial input)
+    if (fullName || age || birthDate || phoneNumber) {
+      toast.success("Success Input Data", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: true,
+        theme: "colored",
+      });
+    }
   }, []);
 
   const handleReset = () => {
-    // Reset data pada sessionStorage dan state
+    // Reset data in sessionStorage
     sessionStorage.removeItem("fullName");
     sessionStorage.removeItem("age");
     sessionStorage.removeItem("birthDate");
@@ -41,6 +53,14 @@ const Page = () => {
       profilePic: "",
       phoneNumber: "",
     });
+
+    // Show reset toast
+    toast.error("Reset Data", {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: true,
+      theme: "colored",
+    });
   };
 
   return (
@@ -50,7 +70,7 @@ const Page = () => {
       <div className="absolute top-0 -left-10 w-[380px] h-[400px] bg-[#65484f44] z-10 rounded-custom"></div>
       <div className="absolute bottom-0 left-0 right-0 w-full h-[200px] bg-[#42374373] z-10 rounded-custom3"></div>
 
-      {/* animasi floating */}
+      {/* animation floating */}
       <div className="absolute top-40 right-[400px] hidden md:block bg-[#65484f44] z-10 rounded-full md:w-[250px] md:h-[250px] animate-floating-1"></div>
       <div className="absolute bottom-40 left-[400px] hidden md:block bg-[#54486544] z-10 rounded-full md:w-[250px] md:h-[250px] animate-floating-2"></div>
       <div className="absolute top-10 md:top-80 md:left-[200px] bg-[#65484f44] z-10 rounded-full md:w-[120px] md:h-[120px] animate-floating-3"></div>
@@ -70,9 +90,15 @@ const Page = () => {
               />
             </div>
           </div>
-
-          {/* Komponen DisplayData*/}
           <DisplayData profileData={profileData} />
+          {/* <div className="w-full flex justify-center">
+            <ButtonCustom
+              type="button"
+              onClick={handleReset}
+              customClassname="bg-red-500 hover:bg-red-600"
+              children="Reset Data"
+            />
+          </div> */}
 
           <div className="w-full flex justify-center mt-5">
             <ButtonCustom
@@ -84,6 +110,7 @@ const Page = () => {
           </div>
         </div>
       </main>
+      <ToastContainer />
     </div>
   );
 };

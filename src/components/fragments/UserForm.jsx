@@ -33,7 +33,7 @@ const UserForm = () => {
         const base64Image = reader.result;
         setPreviewImage(base64Image);
 
-        // Simpan gambar dalam sessionStorage
+        // save base64 image to sessionStorage
         sessionStorage.setItem("profilePic", base64Image);
       };
       reader.readAsDataURL(file);
@@ -53,13 +53,12 @@ const UserForm = () => {
       return;
     }
 
-    // Simpan data pengguna ke sessionStorage
+    // save data to sessionStorage
     sessionStorage.setItem("fullName", formData.fullName);
     sessionStorage.setItem("age", formData.age);
     sessionStorage.setItem("birthDate", formData.birthDate);
     sessionStorage.setItem("phoneNumber", formData.phoneNumber);
 
-    // Redirect ke halaman profil
     router.push("/about");
   };
 
@@ -69,6 +68,7 @@ const UserForm = () => {
       className="max-w-md mx-auto p-6 rounded-lg px-10 transition-all duration-500 ease-in-out transform md:max-w-screen-md md:block lg:max-w-screen-lg"
     >
       <div className="md:flex md:w-full md:justify-center md:gap-8 ">
+        {/* Section fullname, age, and birth date */}
         <section className=" md:w-[70%]">
           <InputForm
             id="fullName"
@@ -99,6 +99,7 @@ const UserForm = () => {
             required
           />
         </section>
+        {/* section profile picture and phone number */}
         <section className="md:w-[70%]">
           <div className="mb-4 md:mb-9">
             <label
@@ -134,8 +135,11 @@ const UserForm = () => {
             label="Phone Number"
             value={formData.phoneNumber}
             onChange={handleChange}
-            type="text"
+            type="text" 
+            min="10"
             placeholder="Your mobile number goes here"
+            pattern="(^08\d{8,10}$|^\+62\d{8,12}$)"
+            title="Phone number must start with 08 or +62, followed by 8 to 12 digits."
           />
         </section>
       </div>
