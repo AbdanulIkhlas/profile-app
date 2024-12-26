@@ -1,5 +1,5 @@
-import Navbar from "../components/Navbar";
-import UserForm from "../components/UserForm";
+import Navbar from "../components/fragments/Navbar";
+import UserForm from "../components/fragments/UserForm";
 
 export default function Home() {
   return (

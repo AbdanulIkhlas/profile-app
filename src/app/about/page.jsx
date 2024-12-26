@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Navbar from "../../components/Navbar";
+import Navbar from "../../components/fragments/Navbar";
 
 const Page = () => {
   const [profileData, setProfileData] = useState({
