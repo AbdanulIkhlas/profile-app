@@ -17,6 +17,8 @@ const Page = () => {
     phoneNumber: "",
   });
 
+  const [submitted, setSubmitted] = useState(false);
+
   useEffect(() => {
     // Fetch data from sessionStorage
     const fullName = sessionStorage.getItem("fullName");
@@ -27,16 +29,19 @@ const Page = () => {
 
     setProfileData({ fullName, age, birthDate, profilePic, phoneNumber });
 
-    // Show success toast after data is fetched (initial input)
-    if (fullName || age || birthDate || phoneNumber) {
-      toast.success("Success Input Data", {
+    // If data exists and it's the first time the page is loaded
+    if ((fullName || age || birthDate || phoneNumber) && !submitted) {
+      toast.success("Data Has Been Inputted", {
         position: "top-center",
         autoClose: 3000,
         hideProgressBar: true,
         theme: "colored",
       });
+
+      // Mark that the data has been submitted
+      setSubmitted(true);
     }
-  }, []);
+  }, [submitted]);
 
   const handleReset = () => {
     // Reset data in sessionStorage
@@ -46,6 +51,7 @@ const Page = () => {
     sessionStorage.removeItem("profilePic");
     sessionStorage.removeItem("phoneNumber");
 
+    // Reset profileData and submitted flag
     setProfileData({
       fullName: "",
       age: "",
@@ -53,6 +59,8 @@ const Page = () => {
       profilePic: "",
       phoneNumber: "",
     });
+
+    setSubmitted(false); // Reset the submitted state
 
     // Show reset toast
     toast.error("Reset Data", {
