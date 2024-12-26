@@ -74,6 +74,7 @@ const UserForm = () => {
       <InputForm
         id="fullName"
         label="Full Name"
+        placeholder="Write your complete name here"
         value={formData.fullName}
         onChange={handleChange}
         required
@@ -81,6 +82,7 @@ const UserForm = () => {
       <InputForm
         id="age"
         label="Age"
+        placeholder="How young are you?"
         value={formData.age}
         onChange={handleChange}
         type="number"
@@ -90,34 +92,40 @@ const UserForm = () => {
       <InputForm
         id="birthDate"
         label="Birth Date"
+        placeholder="Select your birth date"
         value={formData.birthDate}
         onChange={handleChange}
         type="date"
         required
       />
-
       <div className="mb-4">
         <label
           htmlFor="profilePic"
-          className="block text-sm font-medium text-white"
+          className="block text-sm font-medium text-center text-white"
         >
           Profile Picture
         </label>
-        <input
-          type="file"
-          id="profilePic"
-          name="profilePic"
-          accept="image/*"
-          onChange={handleFileChange}
-          className="mt-1 block w-full rounded border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-        />
-        {previewImage && (
-          <img
-            src={previewImage}
-            alt="Profile Preview"
-            className="mt-4 w-32 h-32 object-cover rounded-full mx-auto"
+        <div className="relative w-32 h-32 mx-auto mt-4">
+          {previewImage ? (
+            <img
+              src={previewImage}
+              alt="Profile Preview"
+              className="w-full h-full object-cover rounded-full border-4 border-indigo-500 shadow-lg"
+            />
+          ) : (
+            <div className="w-full text-center h-full bg-indigo-900 rounded-full flex items-center justify-center text-white border-4 border-gray-500/50 shadow-lg">
+              Upload your photo
+            </div>
+          )}
+          <input
+            type="file"
+            id="profilePic"
+            name="profilePic"
+            accept="image/*"
+            onChange={handleFileChange}
+            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
           />
-        )}
+        </div>
       </div>
       <InputForm
         id="phoneNumber"
@@ -125,14 +133,16 @@ const UserForm = () => {
         value={formData.phoneNumber}
         onChange={handleChange}
         type="tel"
-        placeholder="+1234567890"
+        placeholder="Your mobile number goes here"
       />
-      <button
-        type="submit"
-        className="w-full bg-indigo-500 text-white py-2 px-4 rounded hover:bg-indigo-600 transition-colors duration-300"
-      >
-        Submit
-      </button>
+      <div className="w-full flex justify-center">
+        <button
+          type="submit"
+          className="w-[60%] mt-3 bg-[#612fcc] text-center text-white py-2 px-4 rounded-full hover:bg-indigo-600 transition-colors duration-300"
+        >
+          Submit
+        </button>
+      </div>
     </form>
   );
 };
