@@ -19,3 +19,92 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes floating1 {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(100px, -150px);
+  }
+  50% {
+    transform: translate(-200px, 50px);
+  }
+  75% {
+    transform: translate(150px, -250px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes floating2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-150px, -80px);
+  }
+  50% {
+    transform: translate(200px, 120px);
+  }
+  75% {
+    transform: translate(-300px, -100px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes floating3 {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(120px, -200px);
+  }
+  50% {
+    transform: translate(-200px, 100px);
+  }
+  75% {
+    transform: translate(150px, -200px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes floating4 {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-100px, -150px);
+  }
+  50% {
+    transform: translate(200px, 50px);
+  }
+  75% {
+    transform: translate(-200px, -20px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.animate-floating-1 {
+  animation: floating1 15s ease-in-out infinite;
+}
+
+.animate-floating-2 {
+  animation: floating2 15s ease-in-out infinite;
+}
+
+.animate-floating-3 {
+  animation: floating3 10s ease-in-out infinite;
+}
+
+.animate-floating-4 {
+  animation: floating4 10s ease-in-out infinite;
+}
+

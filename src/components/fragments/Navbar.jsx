@@ -11,7 +11,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-[#1a1630] text-white p-4 shadow-xl absolute top-0 left-0 right-0 z-50">
+    <nav className="bg-[#1a1630] text-white p-4 shadow-xl absolute top-0 left-0 right-0 z-50 md:px-20 lg:px-40">
       <div className="container mx-auto flex justify-between items-center">
         <span className="text-lg font-bold">Profile App</span>
 
@@ -40,11 +40,13 @@ const Navbar = () => {
 
         {/* Desktop Menu (Hidden on mobile) */}
         <div className="hidden md:flex md:space-x-6">
-          <Link href="/" className="hover:text-gray-300">
+          <Link href="/" className="relative hover:text-gray-300 group">
             Home
+            <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gray-300 scale-x-0 group-hover:scale-x-100 transition-all duration-300"></span>
           </Link>
-          <Link href="/about" className="hover:text-gray-300">
+          <Link href="/about" className="relative hover:text-gray-300 group">
             About
+            <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gray-300 scale-x-0 group-hover:scale-x-100 transition-all duration-300"></span>
           </Link>
         </div>
       </div>

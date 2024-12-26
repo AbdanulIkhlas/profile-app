@@ -11,8 +11,11 @@ const InputForm = ({
   min,
 }) => {
   return (
-    <div className="mb-4">
-      <label htmlFor={id} className="block text-sm text-center font-medium text-white">
+    <div className="mb-4 md:mb-8">
+      <label
+        htmlFor={id}
+        className="block text-sm text-center font-medium text-white md:text-base"
+      >
         {label}
       </label>
       <input
