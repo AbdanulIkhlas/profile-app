@@ -65,7 +65,7 @@ const UserForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="max-w-md mx-auto bg-[#F0BB78] p-6 rounded-lg shadow-xl transition-all duration-500 ease-in-out transform"
+      className="max-w-md mx-auto p-6 rounded-lg shadow-xl transition-all duration-500 ease-in-out transform"
     >
       <h1 className="text-2xl font-bold text-[#FFF0DC] text-center mb-6">
         User Form
