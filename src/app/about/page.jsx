@@ -47,7 +47,7 @@ const Page = () => {
         <h1 className="text-3xl font-bold text-center mb-4">Profile</h1>
         <div className="flex justify-center mb-6">
           <img
-            src={profileData.profilePic || "/photo/noprofile.png"} // Gambar default jika foto tidak ada
+            src={profileData.profilePic || "/photo/noprofile.png"}
             alt="Profile Picture"
             className="w-32 h-32 object-cover rounded-full"
           />
