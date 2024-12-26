@@ -3,15 +3,15 @@ import UserForm from "../components/fragments/UserForm";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#1f1b38] pt-24 relative overflow-hidden">
+    <div className="pt-24 relative overflow-x-hidden">
       <Navbar />
-      <div className="absolute -bottom-28 -right-8 w-[280px] h-[500px] bg-[#432f60] z-10 rounded-custom2"></div>
-      <div className="absolute top-0 -left-10 w-[380px] h-[400px] bg-[#65484f5d] z-10 rounded-custom"></div>
-      <div className="absolute -bottom-0 -left-16 w-[400px] h-[400px] bg-[#4237438a] z-10 rounded-custom3"></div>
-      <h1 className="relative z-40 text-2xl font-bold text-center mb-6">
-        Profile Input App
-      </h1>
-      <main className="absolute z-40 container mx-auto p-4 border border-white">
+      <div className="absolute bottom-0 -right-8 w-[280px] h-[400px] bg-[#432f6091] z-10 rounded-custom2"></div>
+      <div className="absolute top-0 -left-10 w-[380px] h-[400px] bg-[#65484f44] z-10 rounded-custom"></div>
+      <div className="absolute bottom-0 left-0 right-0 w-full h-[200px] bg-[#42374373] z-10 rounded-custom3"></div>
+      <main className="relative top-0 w-full z-50 pb-10">
+        <h1 className="relative z-40 text-2xl font-light text-center mb-6  tracking-wider">
+          Profil Form
+        </h1>
         <UserForm />
       </main>
     </div>

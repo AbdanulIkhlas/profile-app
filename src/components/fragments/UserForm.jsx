@@ -65,11 +65,11 @@ const UserForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="max-w-md mx-auto p-6 rounded-lg shadow-xl transition-all duration-500 ease-in-out transform"
+      className="max-w-md mx-auto p-6 rounded-lg px-10 transition-all duration-500 ease-in-out transform"
     >
-      <h1 className="text-2xl font-bold text-[#FFF0DC] text-center mb-6">
+      {/* <h1 className="text-2xl font-bold text-[#FFF0DC] text-center mb-6">
         User Form
-      </h1>
+      </h1> */}
 
       <InputForm
         id="fullName"
@@ -99,7 +99,7 @@ const UserForm = () => {
       <div className="mb-4">
         <label
           htmlFor="profilePic"
-          className="block text-sm font-medium text-gray-700"
+          className="block text-sm font-medium text-white"
         >
           Profile Picture
         </label>
