@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import InputForm from "../../components/elements/InputForm";
+import ButtonCustom from "../elements/ButtonCustom";
 
 const UserForm = () => {
   const [formData, setFormData] = useState({
@@ -136,12 +137,11 @@ const UserForm = () => {
         placeholder="Your mobile number goes here"
       />
       <div className="w-full flex justify-center">
-        <button
+        <ButtonCustom
           type="submit"
-          className="w-[60%] mt-3 bg-[#612fcc] text-center text-white py-2 px-4 rounded-full hover:bg-indigo-600 transition-colors duration-300"
-        >
-          Submit
-        </button>
+          customClassname="bg-[#612fcc] hover:bg-indigo-600"
+          childred="Submit"
+        />
       </div>
     </form>
   );
