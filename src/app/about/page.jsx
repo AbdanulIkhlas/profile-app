@@ -91,14 +91,6 @@ const Page = () => {
             </div>
           </div>
           <DisplayData profileData={profileData} />
-          {/* <div className="w-full flex justify-center">
-            <ButtonCustom
-              type="button"
-              onClick={handleReset}
-              customClassname="bg-red-500 hover:bg-red-600"
-              children="Reset Data"
-            />
-          </div> */}
 
           <div className="w-full flex justify-center mt-5">
             <ButtonCustom

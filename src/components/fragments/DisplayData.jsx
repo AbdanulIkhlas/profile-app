@@ -1,5 +1,3 @@
-import React from "react";
-
 const DisplayData = ({ profileData }) => {
   return (
     <div className="space-y-6 text-center px-8 md:flex md:gap-12">
